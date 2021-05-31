@@ -1,0 +1,24 @@
+{
+  "name": "cheesebox",
+  "version": "1.0.0",
+  "description": "an implementation of various containers in JavaScript",
+  "main": "build.js",
+  "scripts": {
+    "build": "node .",
+    "test": "npx mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cheeze2000/cheesebox.git"
+  },
+  "author": "Nicholas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cheeze2000/cheesebox/issues"
+  },
+  "homepage": "https://github.com/cheeze2000/cheesebox#readme",
+  "devDependencies": {
+    "mocha": "^8.4.0",
+    "uglify-js": "^3.13.8"
+  }
+}
