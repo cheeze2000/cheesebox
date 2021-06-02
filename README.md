@@ -4,23 +4,29 @@ be mindful that these containers do not handle errors
 
 ---
 ## Contents
-- [MaxHeap](#MaxHeap)
+- [Heap](#Heap)
 - [Queue](#Queue)
 
 ---
-## `MaxHeap`
+## `Heap`
 
 ### `constructor()`
 Complexity: linear
 ```js
-const xs = new MaxHeap();
-const ys = new MaxHeap([20, 10, 0, 40, 50, 30]);
+const ascending = (a, b) => a - b;
+const descending = (a, b) => b - a;
+
+// min-heap
+const xs = new Heap(ascending);
+
+// max-heap
+const ys = new Heap(descending, [20, 10, 0, 40, 50, 30]);
 ```
 
 ### `length`
 Complexity: constant
 ```js
-const nums = new MaxHeap(); // nums: []
+// nums: [] (max-heap)
 nums.length; // 0
 nums.push(3); // nums: [3]
 nums.push(12); // nums: [12, ...]
@@ -30,24 +36,24 @@ nums.length; // 2
 ### `pop()`
 Complexity: logarithmic
 ```js
-const nums = new MaxHeap([3, 9, 6]); // nums: [9, ...]
+const nums = new Heap(descending, [6, 12, 3]); // nums: [12, ...]
 const num = nums.pop(); // nums: [6, ...]
-num; // 9
+num; // 12
 ```
 
 ### `push()`
 Complexity: logarithmic
 ```js
-// nums: []
-nums.push(3); // nums: [3]
+// nums: [] (min-heap)
 nums.push(12); // nums: [12, ...]
-nums.push(6); // nums: [12, ...]
+nums.push(3); // nums: [3, ...]
+nums.push(6); // nums: [3, ...]
 ```
 
 ### `top()`
 Complexity: constant
 ```js
-// nums: [3]
+// nums: [3] (max-heap)
 nums.top(); // 3
 nums.push(9); // nums: [9, ...]
 nums.top(); // 9

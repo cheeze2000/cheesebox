@@ -1,7 +1,9 @@
-class MaxHeap {
+class Heap {
+  #f;
   #xs;
 
-  constructor(xs = []) {
+  constructor(f, xs = []) {
+    this.#f = f;
     this.#xs = xs;
     this.length = xs.length;
     for (let i = (this.length >> 1) - 1; i >= 0; i--) {
@@ -10,11 +12,12 @@ class MaxHeap {
   }
 
   #siftDown(i) {
+    const f = this.#f;
     const xs = this.#xs;
     while (i < this.length >> 1) {
       const l = (i << 1) + 1;
-      let t = xs[l] > xs[i] ? l : i;
-      if (l + 1 < this.length && xs[l + 1] > xs[t]) t = l + 1;
+      let t = f(xs[l], xs[i]) < 0 ? l : i;
+      if (l + 1 < this.length && f(xs[l + 1], xs[t]) < 0) t = l + 1;
       if (t == i) return;
       [xs[i], xs[t]] = [xs[t], xs[i]];
       i = t;
@@ -22,10 +25,11 @@ class MaxHeap {
   }
 
   #siftUp(i) {
+    const f = this.#f;
     const xs = this.#xs;
     while (i > 0) {
       const p = (i - 1) >> 1;
-      if (xs[p] >= xs[i]) return;
+      if (f(xs[p], xs[i]) <= 0) return;
       [xs[i], xs[p]] = [xs[p], xs[i]];
       i = p;
     }
@@ -51,4 +55,4 @@ class MaxHeap {
   }
 }
 
-module.exports = MaxHeap;
+module.exports = Heap;
