@@ -111,3 +111,41 @@ Complexity: constant
 // nums: [6, 12]
 nums.push(3);  // nums: [6, 12, 3]
 ```
+
+---
+## `UnionFind`
+
+### `constructor()`
+Complexity: linear
+```js
+const nums = new UnionFind(3); // nums: [[0], [1], [2]]
+```
+
+### `length`
+Complexity: constant
+```js
+// nums: [[0], [1], [2]]
+nums.length; // 3
+nums.union(0, 2); // nums: [[0, 2], [1]]
+nums.length; // 2
+```
+
+### `find()`
+Complexity: amortised logarithmic
+```js
+// nums: [[0, 1, 3], [2], [4, 5]]
+nums.find(3) == nums.find(1); // true
+nums.find(0) == nums.find(1); // true
+nums.find(5) != nums.find(4); // true
+nums.find(4) != nums.find(2); // true
+```
+
+### `union()`
+Complexity: amortised logarithmic
+```js
+// nums: [[0, 4], [1], [2, 5], [3]]
+nums.union(5, 3); // nums: [[0, 4], [1], [2, 3, 5]]
+nums.union(3, 1); // nums: [[0, 4], [1, 2, 3, 5]]
+nums.union(5, 2); // nums: [[0, 4], [1, 2, 3, 5]]
+nums.union(0, 2); // nums: [[0, 1, 2, 3, 4, 5]]
+```
