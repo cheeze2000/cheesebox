@@ -6,6 +6,7 @@ be mindful that these containers do not handle errors
 ## Contents
 - [Heap](#Heap)
 - [Queue](#Queue)
+- [UnionFind](#UnionFind)
 
 ---
 ## `Heap`
