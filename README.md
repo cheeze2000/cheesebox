@@ -6,6 +6,7 @@ be mindful that these containers do not handle errors
 ## Contents
 - [Heap](#Heap)
 - [Queue](#Queue)
+- [SparseTable](#SparseTable)
 - [UnionFind](#UnionFind)
 
 ---
@@ -111,6 +112,25 @@ Complexity: constant
 ```js
 // nums: [6, 12]
 nums.push(3);  // nums: [6, 12, 3]
+```
+
+---
+## `SparseTable`
+
+### `constructor()`
+Complexity: linearithmic
+```js
+const table0 = new SparseTable(Math.min, [9, 12, 3, 15, 0, 6]);
+const table1 = new SparseTable(Math.max, [9, 12, 3, 15, 0, 6]);
+```
+
+### `query()`
+Complexity: constant
+```js
+table0.query(2, 3); // 3
+table0.query(2, 4); // 0
+table1.query(0, 2); // 12
+table1.query(0, 3); // 15
 ```
 
 ---
