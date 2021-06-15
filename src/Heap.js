@@ -4,7 +4,7 @@ class Heap {
 
   constructor(f, xs = []) {
     this.#f = f;
-    this.#xs = xs;
+    this.#xs = xs.slice();
     this.length = xs.length;
     for (let i = (this.length >> 1) - 1; i >= 0; i--) {
       this.#siftDown(i);
