@@ -7,6 +7,7 @@ be mindful that these containers do not handle errors
 - [Heap](#Heap)
 - [Queue](#Queue)
 - [SparseTable](#SparseTable)
+- [Trie](#Trie)
 - [UnionFind](#UnionFind)
 
 ---
@@ -131,6 +132,41 @@ table0.query(2, 3); // 3
 table0.query(2, 4); // 0
 table1.query(0, 2); // 12
 table1.query(0, 3); // 15
+```
+
+---
+## `Trie`
+
+### `constructor()`
+Complexity: linear
+```js
+const binaryTrie = new Trie("01");
+const lowercaseTrie = new Trie("abcdefghijklmnopqrstuvwxyz");
+```
+
+### `add()`
+Complexity: linear
+```js
+binaryTrie.add("01000010");
+lowercaseTrie.add("yes");
+lowercaseTrie.add("maybe");
+```
+
+### `has()`
+Complexity: linear
+```js
+lowercaseTrie.has("yes"); // true
+lowercaseTrie.has("maybe"); // true
+lowercaseTrie.has("no"); // false
+```
+
+### `hasPrefix()`
+Complexity: linear
+```js
+lowercaseTrie.hasPrefix(""); // true
+lowercaseTrie.hasPrefix("y"); // true
+lowercaseTrie.hasPrefix("yes"); // true
+lowercaseTrie.hasPrefix("n"); // false
 ```
 
 ---
